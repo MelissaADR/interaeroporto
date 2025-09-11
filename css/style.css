@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+    color: #333;
+  }
+  
+  header {
+    background: #004080;
+    color: white;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  button {
+    padding: 8px 16px;
+    margin-top: 10px;
+    background: #004080;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  #mapaAssentos {
+    display: grid;
+    grid-template-columns: repeat(6, 40px);
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .assento {
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .assento.selecionado {
+    background: #22a048;
+    color: white;
+  }
+  
