@@ -15,7 +15,7 @@ body {
 
 /* ===== Cabeçalho / Menu ===== */
 header {
-    background-color: #003580; /* Azul escuro estilo Skyscanner */
+    background-color: #003580; 
     padding: 15px;
     text-align: center;
 }
@@ -29,7 +29,7 @@ header nav a {
 }
 
 header nav a:hover {
-    color: #00aaff; /* Azul claro ao passar o mouse */
+    color: #00aaff; /* Azul claro passar mouse */
 }
 
 /* ===== Container principal ===== */
