@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Check-in{% endblock %}
+
+{% block content %}
+<h1>Check-in</h1>
+<form action="/reserva" method="get">
+    <label for="codigo">Código da Reserva:</label>
+    <input type="text" id="codigo" name="codigo" required>
+    <button type="submit">Validar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Escolha de Assentos{% endblock %}
+
+{% block content %}
+<h1>Escolha de Assento</h1>
+<form action="/cartao" method="get">
+    <label for="assento">Selecione seu assento:</label>
+    <select id="assento" name="assento">
+        <option>12A</option>
+        <option>12B</option>
+        <option>12C</option>
+        <option>13A</option>
+    </select>
+    <button type="submit">Confirmar</button>
+</form>
+{% endblock %}

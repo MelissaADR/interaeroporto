@@ -1,0 +1,79 @@
+/* ===== Reset básico ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== Corpo ===== */
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== Cabeçalho / Menu ===== */
+header {
+    background-color: #003580; /* Azul escuro estilo Skyscanner */
+    padding: 15px;
+    text-align: center;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #00aaff; /* Azul claro ao passar o mouse */
+}
+
+/* ===== Container principal ===== */
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* ===== Botões ===== */
+button, .btn {
+    background-color: #00aaff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover, .btn:hover {
+    background-color: #0088cc;
+}
+
+/* ===== Formulários ===== */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
