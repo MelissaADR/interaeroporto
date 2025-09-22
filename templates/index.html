@@ -3,6 +3,9 @@
 {% block title %}Início{% endblock %}
 
 {% block content %}
-<h1>Bem-vindo ao Sistema de Aeroporto</h1>
-<p>Use o menu acima para navegar entre as etapas do check-in.</p>
+<section class="hero">
+    <h1>Bem-vindo ao Sistema de Check-in Online ✈️</h1>
+    <p>Facilite sua viagem: faça check-in, escolha seu assento e gere seu cartão de embarque em poucos passos.</p>
+    <a href="{{ url_for('checkin') }}" class="btn">Fazer Check-in</a>
+</section>
 {% endblock %}

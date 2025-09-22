@@ -15,7 +15,7 @@ body {
 
 /* ===== Cabeçalho / Menu ===== */
 header {
-    background-color: #003580; 
+    background-color: #003580; /* Azul escuro do layout */
     padding: 15px;
     text-align: center;
 }
@@ -29,7 +29,7 @@ header nav a {
 }
 
 header nav a:hover {
-    color: #00aaff; /* Azul claro passar mouse */
+    color: #00aaff; /* Azul claro quando passa o mouse */
 }
 
 /* ===== Container principal ===== */
@@ -41,7 +41,7 @@ main {
 
 /* ===== Botões ===== */
 button, .btn {
-    background-color: #00aaff;
+    background-color: #134dbadd;
     color: #fff;
     padding: 10px 15px;
     border: none;
@@ -76,4 +76,202 @@ form input {
     margin-bottom: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+/* ===== Hero Section (Página inicial) ===== */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(to right, #003580, #0059b3);
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* Ajuste do botão principal */
+.hero .btn {
+    font-size: 18px;
+    padding: 12px 25px;
+}
+
+
+
+
+
+
+
+
+
+/* ===== Grade de Assentos ===== */
+.grid-assentos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 300px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* ===== Ações de Estilização ===== */
+
+/* Estilo do Span dentro do label */
+.assento span {
+    display: block; /* Transforma o span em um bloco para ocupar o espaço do label */
+    background: #f3f3f3;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    font-weight: bold;
+    color: #333; /* Cor do texto padrão */
+}
+
+/* Remove a cor de fundo do label, já que o span vai ter a cor */
+.assento {
+    background: none;
+}
+
+/* Estilo do span quando o mouse passa por cima do label */
+.assento:hover span {
+    background: #00aaff;
+    color: #fff;
+}
+
+/* Esconde o radio button */
+.assento input {
+    display: none;
+}
+
+/* Estilo do span quando o input está marcado */
+.assento input:checked + span {
+    background: #003580;
+    color: #e2e2e2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Cartão de Embarque ===== */
+body {
+    margin: 0;
+    padding: 0;
+    background: #e6e9f5;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Centralizar cartão */
+.container-cartao {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Cartão principal */
+.cartao {
+    background: #fff;
+    border-radius: 20px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    margin: 30px auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Cabeçalho com fundo azul */
+.cartao-header {
+    background: #1a4fa3; /* azul */
+    padding: 2px;
+    border-radius: 20px 20px 0 0;
+}
+.logo-img {
+    max-height: 92px;
+}
+
+/* Data */
+.data-voo {
+    text-align: center;
+    font-size: 15px;
+    color: #616161;
+    margin: 20px 0;
+}
+
+/* Título Cartão de Embarque com fundo diferente */
+.titulo-cartao {
+    background: #134dba92;     /* cor de fundo (azul, pode mudar) */
+    color: #fff;             /* texto branco */
+    padding: 12px 20px;      /* espaço interno */
+    border-radius: 12px;     /* bordas arredondadas */
+    display: inline-block;   /* deixa só em volta do texto */
+    margin-bottom: 20px;     /* separa do resto */
+    box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Boarding Pass - agora com fundo branco */
+.boarding-pass {
+    background: #ffffff; /* branco */
+    color: #000; /* texto padrão em preto */
+    padding: 25px;
+    border-radius: 0 0 20px 20px;
+}
+.boarding-pass h3 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #232323; /* título em azul escuro */
+}
+.boarding-pass p {
+    margin: 12px 0;
+}
+
+/* Azul escuro para as palavras-chave */
+.boarding-pass strong {
+    color: #032355;
+}
+
+/* QR Code */
+.qr-code-img {
+    width: 130px;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+/* Estilo para a imagem do QR Code */
+.qr-code-img {
+    max-width: 100%; /* Garante que a imagem não exceda a largura do seu contêiner (.cartao) */
+    height: auto;   /* Mantém a proporção da imagem */
+    display: block; /* Remove espaços extras que podem surgir */
+    margin: 20px auto 0 auto; /* Centraliza a imagem e adiciona margem superior */
 }

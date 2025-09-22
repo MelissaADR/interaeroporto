@@ -3,10 +3,16 @@
 {% block title %}Check-in{% endblock %}
 
 {% block content %}
-<h1>Check-in</h1>
-<form action="/reserva" method="get">
+<h2>Check-in Online</h2>
+<p>Digite seus dados para continuar:</p>
+
+<form action="{{ url_for('reserva') }}" method="POST">
+    <label for="nome">Nome do Passageiro:</label>
+    <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" required>
+
     <label for="codigo">Código da Reserva:</label>
-    <input type="text" id="codigo" name="codigo" required>
-    <button type="submit">Validar</button>
+    <input type="text" id="codigo" name="codigo" placeholder="Ex: ABC123" required>
+
+    <button type="submit" class="btn">Validar Reserva</button>
 </form>
 {% endblock %}

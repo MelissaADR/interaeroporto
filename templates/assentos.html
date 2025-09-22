@@ -1,17 +1,23 @@
 {% extends "base.html" %}
 
-{% block title %}Escolha de Assentos{% endblock %}
+{% block title %}Escolha de Assento{% endblock %}
 
 {% block content %}
-<h1>Escolha de Assento</h1>
-<form action="/cartao" method="get">
-    <label for="assento">Selecione seu assento:</label>
-    <select id="assento" name="assento">
-        <option>12A</option>
-        <option>12B</option>
-        <option>12C</option>
-        <option>13A</option>
-    </select>
-    <button type="submit">Confirmar</button>
+<h2>Escolha seu Assento</h2>
+<p>Clique em um assento disponível para selecionar:</p>
+
+<form action="{{ url_for('cartao') }}" method="POST" class="assentos-form">
+    <div class="grid-assentos">
+        {% for fileira in range(1,7) %}
+            {% for coluna in ["A","B","C","D"] %}
+                <label class="assento">
+                    <input type="radio" name="assento" value="{{ fileira }}{{ coluna }}" required>
+                    <span>{{ fileira }}{{ coluna }}</span>
+                </label>
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    <button type="submit" class="btn">Confirmar Assento</button>
 </form>
 {% endblock %}

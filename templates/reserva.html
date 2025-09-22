@@ -3,7 +3,13 @@
 {% block title %}Validação de Reserva{% endblock %}
 
 {% block content %}
-<h1>Validação de Reserva</h1>
-<p>Sua reserva foi validada com sucesso!</p>
-<p><a href="/assentos">Escolher Assento</a></p>
+<h2>Validação de Reserva</h2>
+
+{% if codigo and nome %}
+    <p><strong>Passageiro:</strong> {{ nome }}</p>
+    <p><strong>Código da Reserva:</strong> {{ codigo }}</p>
+    <a href="{{ url_for('assentos') }}" class="btn">Escolher Assento</a>
+{% else %}
+    <p>Nenhum dado informado. Volte para o <a href="{{ url_for('checkin') }}">check-in</a>.</p>
+{% endif %}
 {% endblock %}

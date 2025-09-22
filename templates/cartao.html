@@ -3,15 +3,45 @@
 {% block title %}Cartão de Embarque{% endblock %}
 
 {% block content %}
-<h1>Confirmação de Check-in</h1>
-<p>Seu check-in foi realizado com sucesso!</p>
+<div class="container-cartao">
+    <div class="cartao">
+        <!-- Cabeçalho com logo -->
+        <div class="cartao-header">
+            <img src="{{ url_for('static', filename='logo_branca.png') }}" alt="Logo da Companhia" class="logo-img">
+        </div>
 
-<h2>Cartão de Embarque</h2>
-<div style="border: 2px solid black; padding: 20px; width: 300px;">
-    <p><strong>Nome do Passageiro:</strong> João da Silva</p>
-    <p><strong>Voo:</strong> AB1234</p>
-    <p><strong>Assento:</strong> 12B</p>
-    <p><strong>Portão:</strong> 25</p>
-    <p><strong>Horário:</strong> 14:30</p>
+        <!-- Data automática -->
+        <p class="data-voo" id="data-voo"></p>
+
+        <!-- Boarding Pass -->
+        <!-- Boarding Pass -->
+        <div class="boarding-pass">
+            <h3 class="titulo-cartao">Cartão de Embarque</h3>
+            <p><strong>Passageiro:</strong> {{ nome }}</p>
+            <p><strong>Código Reserva:</strong> {{ codigo }}</p>
+            <p><strong>Assento:</strong> {{ assento }}</p>
+            <p><strong>Status:</strong> Embarque Confirmado ✅</p>
+
+            <img src="{{ url_for('static', filename='qrcode.png') }}" alt="QR Code" class="qr-code-img">
+        </div>
+
+    </div>
 </div>
+
+<!-- Script para pegar a data atual -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const hoje = new Date();
+        const opcoes = { year: 'numeric', month: 'long', day: 'numeric' };
+        let dataFormatada = hoje.toLocaleDateString('pt-BR', opcoes);
+
+        // Capitaliza o primeiro caractere do mês
+        dataFormatada = dataFormatada.replace(/ de ([a-z])/, function(_, letra) {
+            return ' de ' + letra.toUpperCase();
+        });
+
+        document.getElementById("data-voo").textContent = dataFormatada;
+    });
+</script>
+
 {% endblock %}
