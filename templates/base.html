@@ -14,6 +14,14 @@
             <a href="{{ url_for('reserva') }}">Validação de Reserva</a>
             <a href="{{ url_for('assentos') }}">Escolha de Assento</a>
             <a href="{{ url_for('cartao') }}">Cartão de Embarque</a>
+
+            {% if session.get('email') %}
+                <a href="{{ url_for('perfil') }}">Perfil</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('cadastro') }}">Cadastro</a>
+            {% endif %}
         </nav>
     </header>
 

@@ -16,7 +16,7 @@
         <!-- Boarding Pass -->
         <div class="boarding-pass">
             <h3 class="titulo-cartao">Cartão de Embarque</h3>
-            <p><strong>Passageiro:</strong> {{ nome }}</p>
+            <p>Passageiro: {{ session.get('nome') }}</p>
             <p><strong>Código Reserva:</strong> {{ codigo }}</p>
             <p><strong>Origem:</strong> {{ origem }}</p>
             <p><strong>Assento:</strong> {{ assento }}</p>
