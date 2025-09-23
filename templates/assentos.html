@@ -10,9 +10,14 @@
     <div class="grid-assentos">
         {% for fileira in range(1,7) %}
             {% for coluna in ["A","B","C","D"] %}
+                {% set codigo_assento = fileira ~ coluna %}
                 <label class="assento">
-                    <input type="radio" name="assento" value="{{ fileira }}{{ coluna }}" required>
-                    <span>{{ fileira }}{{ coluna }}</span>
+                    <input type="radio" name="assento" value="{{ codigo_assento }}" 
+                           {% if codigo_assento in ocupados %} disabled {% endif %} required>
+                        {{ codigo_assento }}
+                        <span{% if codigo_assento in ocupados %} style="background-color: #ff6666; cursor: not-allowed;"{% endif %}>
+                        {{ codigo_assento }}
+                        </span>
                 </label>
             {% endfor %}
         {% endfor %}
@@ -21,3 +26,4 @@
     <button type="submit" class="btn">Confirmar Assento</button>
 </form>
 {% endblock %}
+

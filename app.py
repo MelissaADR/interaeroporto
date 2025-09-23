@@ -5,6 +5,15 @@ import io
 app = Flask(__name__)
 app.secret_key = "chave-secreta"  # Necessário para usar sessão
 
+# Lista de aeroportos fictícios
+AEROPORTOS = ["Rua D.Abataiguara - 663 - Dirthmouth"]
+
+# Assentos ocupados na sessão
+def get_assentos_ocupados():
+    if "ocupados" not in session:
+        session["ocupados"] = []
+    return session["ocupados"]
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -18,34 +27,55 @@ def reserva():
     if request.method == "POST":
         session["nome"] = request.form.get("nome")
         session["codigo"] = request.form.get("codigo")
-    return render_template("reserva.html", nome=session.get("nome"), codigo=session.get("codigo"))
+        session["origem"] = request.form.get("origem")
+        
+    return render_template(
+        "reserva.html",
+        nome=session.get("nome"),
+        codigo=session.get("codigo"),
+        origem=session.get("origem"),
+        aeroportos=AEROPORTOS
+    )
 
 @app.route("/assentos", methods=["GET", "POST"])
 def assentos():
-    return render_template("assentos.html")
+    ocupados = get_assentos_ocupados()
+    return render_template("assentos.html", ocupados=ocupados)
 
 @app.route("/cartao", methods=["GET", "POST"])
 def cartao():
     if request.method == "POST":
-        session["assento"] = request.form.get("assento")
+        assento_escolhido = request.form.get("assento")
+        ocupados = get_assentos_ocupados()
 
-    # Obtendo os dados da sessão
+        # Marca o assento como ocupado
+        if assento_escolhido and assento_escolhido not in ocupados:
+            ocupados.append(assento_escolhido)
+            session["ocupados"] = ocupados
+            session["assento"] = assento_escolhido
+
+    # Dados do passageiro
     nome = session.get("nome")
     codigo = session.get("codigo")
     assento = session.get("assento")
+    origem = session.get("origem")
+   
 
-    # --- NOVO: Colocando o código do QR Code AQUI DENTRO ---
-    if nome and codigo and assento:
-        # Dados do QR Code
-        dados_qr = f"Passageiro: {nome}\nReserva: {codigo}\nAssento: {assento}"
+    if nome and codigo and assento and origem:
+        # Conteúdo do QR Code
+        dados_qr = (
+            f"Passageiro: {nome}\n"
+            f"Reserva: {codigo}\n"
+            f"Assento: {assento}\n"
+            f"Origem: {origem}\n"
+        )
 
-        # Gerar QR Code em memória
+        # Gera QR Code em memória
         qr = qrcode.make(dados_qr)
         buf = io.BytesIO()
         qr.save(buf, format="PNG")
         buf.seek(0)
 
-        # Salvar imagem temporária
         qr_filename = "static/qrcode.png"
         with open(qr_filename, "wb") as f:
             f.write(buf.getbuffer())
@@ -55,10 +85,10 @@ def cartao():
             nome=nome,
             codigo=codigo,
             assento=assento,
+            origem=origem,
             qr=qr_filename
         )
     else:
-        # Redireciona de volta se os dados não estiverem na sessão
         return redirect(url_for('reserva'))
 
 if __name__ == "__main__":
