@@ -1,23 +1,35 @@
 {% extends "base.html" %}
+{# Usa a estrutura base.html #}
 
 {% block title %}Check-in{% endblock %}
+{# Título da aba do navegador #}
 
 {% block content %}
-<h2>Check-in Online</h2>
-<p>Digite seus dados para continuar:</p>
+<section class="checkin-section">
+    <div class="checkin-container">
+        <h2>Check-in Online</h2>
+        <p>Digite seus dados para continuar:</p>
 
-<form action="{{ url_for('reserva') }}" method="POST">
-    <label for="nome">Nome do Passageiro:</label>
-    {% if session.get('nome') %}
-        <!-- Preenchido automaticamente e somente leitura -->
-        <input type="text" id="nome" name="nome" value="{{ session['nome'] }}" readonly>
-    {% else %}
-        <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" required>
-    {% endif %}
+        <!-- Formulário de check-in -->
+        <form action="{{ url_for('reserva') }}" method="POST" class="checkin-form">
 
-    <label for="codigo">Código da Reserva:</label>
-    <input type="text" id="codigo" name="codigo" placeholder="Ex: ABC123" required>
+            <!-- Campo Nome -->
+            <label for="nome">Nome do Passageiro:</label>
+            {% if session.get('nome') %}
+                <!-- Se já tiver na sessão, preenche automático e não deixa editar -->
+                <input type="text" id="nome" name="nome" value="{{ session['nome'] }}" readonly>
+            {% else %}
+                <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" required>
+            {% endif %}
 
-    <button type="submit" class="btn">Validar Reserva</button>
-</form>
+            <!-- Campo Código -->
+            <label for="codigo">Código da Reserva:</label>
+            <input type="text" id="codigo" name="codigo" placeholder="Ex: ABC123" required>
+
+            <!-- Botão de envio -->
+            <button type="submit" class="btn">Validar Reserva</button>
+        </form>
+    </div>
+</section>
 {% endblock %}
+

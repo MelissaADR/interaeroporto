@@ -1,20 +1,55 @@
 {% extends "base.html" %}
 
-{% block title %}Início{% endblock %}
+{% block title %}Sistema de Aeroporto{% endblock %}
 
 {% block content %}
-<section class="hero">
-    <h1>Bem-vindo ao Sistema de Check-in Online RTMM</h1>
-    <p>Faça check-in, escolha seu assento e gere seu cartão de embarque em poucos passos</p>
-    <a href="{{ url_for('checkin') }}" class="btn">Fazer Check-in</a>
+<section class="hero-section">
+    <div class="hero-overlay">
+        <h1>Bem-vindo ao Sistema de Aeroporto RTMM</h1>
+        <p>Reserve seus voos de forma rápida e prática</p>
+        <a href="{{ url_for('checkin') }}" class="btn">Fazer Check-in</a>
+    </div>
 </section>
 
-{% if not cookies_aceitos %}
-<div id="cookie-banner">
-    <p>Usamos cookies para melhorar sua experiência de navegação - Sobre nossa Política de Privacidade, Você aceita?</p>
-    <button onclick="aceitarCookies()">Aceitar</button>
-    <button onclick="rejeitarCookies()">Rejeitar</button>
+<div class="slideshow-container">
+    <div class="slideshow">
+        <div class="slide" style="background-image: url('{{ url_for('static', filename='fotosmenu/foto1.png') }}')"></div>
+        <div class="slide" style="background-image: url('{{ url_for('static', filename='fotosmenu/foto2.png') }}')"></div>
+        <div class="slide" style="background-image: url('{{ url_for('static', filename='fotosmenu/foto3.png') }}')"></div>
+        <div class="slide" style="background-image: url('{{ url_for('static', filename='fotosmenu/foto4.png') }}')"></div>
+        <div class="slide" style="background-image: url('{{ url_for('static', filename='fotosmenu/foto5.png') }}')"></div>
+    </div>
 </div>
-{% endif %}
-{% endblock %}
 
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Sistema de Aeroporto</h3>
+                <p>Facilitando sua experiência de viagem: check-in online, escolha de assentos e muito mais.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Links úteis</h4>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Início</a></li>
+                    <li><a href="{{ url_for('checkin') }}">Check-in</a></li>
+                    <li><a href="{{ url_for('reserva') }}">Reservas</a></li>
+                    <li><a href="{{ url_for('perfil') }}">Perfil</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Conecte-se</h4>
+                <p>
+                    <a href="#">Facebook</a> | 
+                    <a href="#">Instagram</a> | 
+                    <a href="#">Twitter</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sistema de Aeroporto. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+{% endblock %}

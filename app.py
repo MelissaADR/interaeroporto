@@ -203,3 +203,26 @@ def rejeitar_cookies():
     resp = app.make_response("Cookies rejeitados.")
     resp.set_cookie("cookies_aceitos", "nao", max_age=60*60*24*365)
     return resp
+
+
+
+
+
+
+
+
+
+
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/checkin')
+def checkin():
+    # Esta é uma rota de exemplo para o link do botão "Fazer Check-in"
+    return "Página de Check-in"
+
+if __name__ == '__main__':
+    app.run(debug=True)

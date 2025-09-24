@@ -1,32 +1,51 @@
 {% extends "base.html" %}
+{# Usa a estrutura base.html #}
 
-{% block title %}Validação de Reserva{% endblock %}
+{% block title %}Reserva{% endblock %}
+{# Define o título da aba #}
 
 {% block content %}
-<h2>Validação de Reserva</h2>
+<section class="reserva-section">
+    <div class="reserva-container">
+        <h2>Validação de Reserva</h2>
 
-{% if codigo and nome and origem %}
-    <p><strong>Passageiro:</strong> {{ nome }}</p>
-    <p><strong>Código da Reserva:</strong> {{ codigo }}</p>
-    <p><strong>Origem:</strong> {{ origem }}</p>
-    <a href="{{ url_for('assentos') }}" class="btn">Escolher Assento</a>
-{% else %}
-    <form action="{{ url_for('reserva') }}" method="POST">
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" value="{{ nome or '' }}" required>
+        {% if codigo and nome and origem %}
+            <!-- Exibe os dados da reserva já preenchidos -->
+            <p><strong>Passageiro:</strong> {{ nome }}</p>
+            <p><strong>Código da Reserva:</strong> {{ codigo }}</p>
+            <p><strong>Origem:</strong> {{ origem }}</p>
 
-        <label for="codigo">Código da Reserva:</label>
-        <input type="text" name="codigo" id="codigo" value="{{ codigo or '' }}" required>
+            <!-- Link para próxima etapa -->
+            <a href="{{ url_for('assentos') }}" class="btn">Escolher Assento</a>
+        
+        {% else %}
+            <!-- Formulário de validação da reserva -->
+            <form action="{{ url_for('reserva') }}" method="POST" class="reserva-form">
+                
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" value="{{ nome or '' }}" placeholder="Digite seu nome" required>
+                </div>
 
-        <label for="origem">Aeroporto de Origem:</label>
-        <select name="origem" id="origem" required>
-            {% for aero in aeroportos %}
-                <option value="{{ aero }}" {% if origem == aero %}selected{% endif %}>{{ aero }}</option>
-            {% endfor %}
-        </select>
+                <div class="form-group">
+                    <label for="codigo">Código da Reserva</label>
+                    <input type="text" name="codigo" id="codigo" value="{{ codigo or '' }}" placeholder="Ex: ABC123" required>
+                </div>
 
-        <button type="submit" class="btn">Confirmar</button>
-    </form>
-{% endif %}
+                <div class="form-group">
+                    <label for="origem">Aeroporto de Origem</label>
+                    <select name="origem" id="origem" required>
+                        {% for aero in aeroportos %}
+                            <option value="{{ aero }}" {% if origem == aero %}selected{% endif %}>{{ aero }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Confirmar</button>
+            </form>
+        {% endif %}
+    </div>
+</section>
 {% endblock %}
+
 

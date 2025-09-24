@@ -1,8 +1,23 @@
 {% extends "base.html" %}
+{# Usa a estrutura base.html #}
+
 {% block title %}Perfil{% endblock %}
+{# Define o título da aba #}
 
 {% block content %}
-<h1>Bem-vindo, {{ usuario.nome }}!</h1>
-<p>Email: {{ usuario.email }}</p>
-<!-- Aqui você pode listar reservas ou QR codes de check-in -->
+<section class="perfil-section">
+    <div class="perfil-container">
+        <!-- Saudação personalizada -->
+        <h1>Bem-vindo, {{ usuario.nome }}!</h1>
+
+        <!-- Dados principais do usuário -->
+        <p><strong>E-mail:</strong> {{ usuario.email }}</p>
+
+        <!-- Espaço para futuras informações (reservas, QR codes etc.) -->
+        <div class="perfil-extra">
+            <p>Aqui você poderá visualizar suas reservas e cartões de embarque.</p>
+        </div>
+    </div>
+</section>
 {% endblock %}
+

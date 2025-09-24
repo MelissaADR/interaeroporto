@@ -1,18 +1,39 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
+{# Usa a estrutura do base.html #}
+
 {% block title %}Cadastro{% endblock %}
+{# Define o título da aba #}
 
 {% block content %}
-<h1>Cadastro de Passageiro</h1>
-<form action="{{ url_for('cadastro') }}" method="post">
-    <label>Nome:</label><br>
-    <input type="text" name="nome" required><br>
-    
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br>
-    
-    <label>Senha:</label><br>
-    <input type="password" name="senha" required><br>
-    
-    <button type="submit">Cadastrar</button>
-</form>
+<section class="cadastro-section">
+    <div class="cadastro-container">
+        <h1>Cadastro de Passageiro</h1>
+
+        <!-- Formulário de cadastro -->
+        <form action="{{ url_for('cadastro') }}" method="post" class="cadastro-form">
+            
+            <!-- Nome -->
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+            </div>
+
+            <!-- E-mail -->
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu melhor e-mail" required>
+            </div>
+
+            <!-- Senha -->
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Crie uma senha segura" required>
+            </div>
+
+            <!-- Botão -->
+            <button type="submit" class="btn-cadastro">Cadastrar</button>
+        </form>
+    </div>
+</section>
 {% endblock %}
+

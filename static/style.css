@@ -1,384 +1,594 @@
-/* ===== Reset básico ===== */
+/* ===============================
+   🎨 Configuração Geral & Reset
+   =============================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
 }
 
-/* ===== Corpo ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
 body {
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
+  background: linear-gradient(to bottom right, #ffffff, #dcdcdc);
+  color: #333;
+  line-height: 1.6;
+  font-family: "Poppins", "Segoe UI", sans-serif;
 }
 
-/* ===== Cabeçalho com logo e menu ===== */
+/* ===============================
+   🧭 Cabeçalho (Logo + Menu)
+   =============================== */
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* logo à esquerda, menu à direita */
-    background-color: #0a335f;
-    padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0a335f;
+  padding: 10px 20px;
 }
 
-/* Logo */
 .logo-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-    width: 65px;
-    height: auto;
-    display: block;
+  width: 65px;
+  height: auto;
+  display: block;
 }
 
-/* Menu */
+/* Menu principal */
 .menu-nav {
-    display: flex;
-    gap: 22px;
-    justify-content: center; 
-    flex: 1;
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  flex: 1;
 }
 
 .menu-nav a {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 16px;
-    background-color: #ffffff0d;
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: "Segoe UI", sans-serif;
-    transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  background-color: #ffffff0d;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .menu-nav a:hover {
-    background-color: #ffffff22;
+  background-color: #ffffff22;
 }
 
 .menu-nav a.active {
-    background-color: #0084ff;
-    border-color: #ffffff20;
-    color: #fff;
+  background-color: #0084ff;
+  border-color: #ffffff20;
+  color: #fff;
 }
 
-/* ===== Container principal ===== */
+/* ===============================
+   📄 Conteúdo Principal
+   =============================== */
 main {
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
 }
 
-/* ===== Botões ===== */
+/* ===============================
+   🔘 Botões
+   =============================== */
 button, .btn {
-    background-color: #134dbadd;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
+  background-color: #134dbadd;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+  font-family: "Poppins", sans-serif;
 }
 
 button:hover, .btn:hover {
-    background-color: #0088cc;
+  background-color: #0088cc;
+  transform: scale(1.05);
 }
 
-/* ===== Formulários ===== */
+/* ===============================
+   📑 Formulários
+   =============================== */
 form {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-    max-width: 400px;
-    margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: auto;
 }
 
 form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
 form input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s;
 }
 
-/* ===== Hero Section (Página inicial) ===== */
+form input:focus {
+  border-color: #4b6cff;
+  box-shadow: 0 0 5px rgba(75, 108, 255, 0.5);
+}
+
+/* ===============================
+   🦸 Hero Section
+   =============================== */
 .hero {
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(to right, #003580, #0059b3);
-    color: white;
-    border-radius: 10px;
-    margin-top: 20px;
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #003580, #0059b3);
+  color: white;
+  border-radius: 14px;
+  margin-top: 20px;
 }
 
 .hero h1 {
-    font-size: 36px;
-    margin-bottom: 15px;
+  font-size: 36px;
+  margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 18px;
-    margin-bottom: 25px;
+  font-size: 18px;
+  margin-bottom: 25px;
 }
 
-/* Ajuste do botão principal */
 .hero .btn {
-    font-size: 18px;
-    padding: 12px 25px;
+  font-size: 18px;
+  padding: 12px 25px;
+  border-radius: 25px;
 }
 
-/* ===== Grade de Assentos ===== */
+/* ===============================
+   🎟️ Grade de Assentos
+   =============================== */
 .grid-assentos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    max-width: 300px;
-    margin: 30px auto;
-    text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 300px;
+  margin: 30px auto;
+  text-align: center;
 }
 
-/* Estilo do Span dentro do label */
 .assento span {
-    display: block;
-    background: #f3f3f3;
-    padding: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-    font-weight: bold;
-    color: #333;
-}
-
-.assento {
-    background: none;
+  display: block;
+  background: #f3f3f3;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+  color: #333;
 }
 
 .assento:hover span {
-    background: #179b17e0;
-    color: #fff;
+  background: #179b17e0;
+  color: #fff;
 }
 
 .assento input {
-    display: none;
+  display: none;
 }
 
 .assento input:checked + span {
-    background: #003580;
-    color: #e2e2e2;
+  background: #003580;
+  color: #e2e2e2;
 }
 
-/* ===== Cartão de Embarque ===== */
-body {
-    margin: 0;
-    padding: 0;
-    background: #e6e9f5;
-    font-family: 'Inter', sans-serif;
-}
-
-/* Centralizar cartão */
+/* ===============================
+   💳 Cartão de Embarque
+   =============================== */
 .container-cartao {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
-/* Cartão principal */
 .cartao {
-    background: #fff;
-    border-radius: 20px;
-    max-width: 400px;
-    width: 100%;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-    margin: 30px auto;
-    overflow: hidden;
-    text-align: center;
+  background: #fff;
+  border-radius: 20px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  margin: 30px auto;
+  overflow: hidden;
+  text-align: center;
 }
 
-/* Cabeçalho com fundo azul */
 .cartao-header {
-    background: #1a4fa3;
-    padding: 2px;
-    border-radius: 20px 20px 0 0;
+  background: #1a4fa3;
+  padding: 5px;
+  border-radius: 20px 20px 0 0;
 }
 
 .logo-img {
-    max-height: 92px;
+  max-height: 92px;
 }
 
-/* Data */
 .data-voo {
-    text-align: center;
-    font-size: 15px;
-    color: #616161;
-    margin: 20px 0;
+  font-size: 15px;
+  color: #616161;
+  margin: 20px 0;
 }
 
-/* Título Cartão de Embarque */
 .titulo-cartao {
-    background: #134dba92;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 12px;
-    display: inline-block;
-    margin-bottom: 20px;
-    box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
+  background: #134dba92;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 20px;
+  box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
 }
 
-/* Boarding Pass */
 .boarding-pass {
-    background: #ffffff;
-    color: #000;
-    padding: 25px;
-    border-radius: 0 0 20px 20px;
+  padding: 25px;
 }
 
 .boarding-pass h3 {
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    color: #232323;
-}
-
-.boarding-pass p {
-    margin: 12px 0;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #232323;
 }
 
 .boarding-pass strong {
-    color: #032355;
+  color: #032355;
 }
 
-/* QR Code */
 .qr-code-img {
-    width: 130px;
-    margin-top: 20px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto 0 auto;
+  width: 130px;
+  margin: 20px auto 0;
+  display: block;
 }
 
-/* ===== Cookie Banner ===== */
+/* ===============================
+   🍪 Cookie Banner
+   =============================== */
 #cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #f9f9f9;
-    padding: 15px;
-    text-align: center;
-    border-top: 1px solid #ccc;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-    z-index: 999;
-    font-family: Arial, sans-serif;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f9f9f9;
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  z-index: 999;
 }
 
 #cookie-banner p {
-    margin: 0 0 10px 0;
-    font-size: 14px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
 #cookie-banner button {
-    margin: 0 5px;
-    padding: 8px 16px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
+  margin: 0 5px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 #cookie-banner button:hover {
-    background-color: rgba(51, 51, 51, 0.636);
+  background-color: rgba(51, 51, 51, 0.636);
 }
 
-/* ===== Menu hambúrguer (mobile) ===== */
+/* ===============================
+   🍔 Menus Extras
+   =============================== */
+/* Menu hambúrguer (mobile) */
 .menu-hamburguer {
-    position: relative;
-    display: none;
+  display: none;
 }
 
 .menu-hamburguer button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #fff;
-    cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
 }
 
-/* ===== Menu 3 pontos (desktop) ===== */
+/* Menu de 3 pontos (desktop) */
 .menu-ellipsis {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .menu-ellipsis button {
-    background: none;
-    border: none;
-    font-size: 20px;
-    color: #fff;
-    cursor: pointer;
-    padding: 6px 10px;
-    border-radius: 50%;
-    transition: background 0.2s;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 50%;
+  transition: background 0.2s;
 }
 
 .menu-ellipsis button:hover {
-    background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
-/* ===== Dropdown ===== */
+/* Dropdown */
 .dropdown {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 40px;
-    background-color: #0a335f;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    flex-direction: column;
-    min-width: 150px;
-    z-index: 1000;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background-color: #0a335f;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  min-width: 150px;
+  flex-direction: column;
 }
 
 .dropdown a {
-    padding: 10px;
-    text-decoration: none;
-    color: #fff;
-    display: block;
-    transition: background 0.2s;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
 }
 
 .dropdown a:hover {
-    background-color: #ffffff22;
+  background-color: #ffffff22;
 }
 
-/* ===== Responsividade ===== */
+/* ===============================
+   📱 Responsividade
+   =============================== */
 .desktop-only { display: inline-flex; }
 .mobile-only { display: none; }
 
 @media (max-width: 768px) {
-    .menu-nav {
-        display: none;
-    }
-    .menu-hamburguer {
-        display: block;
-    }
-    .desktop-only {
-        display: none !important;
-    }
-    .mobile-only {
-        display: block !important;
-    }
+  .menu-nav { display: none; }
+  .menu-hamburguer { display: block; }
+  .desktop-only { display: none !important; }
+  .mobile-only { display: block !important; }
 }
+
+/* ===============================
+   🖼️ Slideshow + Hero Overlay
+   =============================== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.hero-overlay {
+  background: rgba(0, 36, 92, 0.9);
+  color: #fff;
+  padding: 60px 20px;
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+.hero-overlay h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.hero-overlay p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.hero-overlay .btn {
+  font-size: 18px;
+  padding: 12px 25px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #4b6cff, #6b4bff);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.hero-overlay .btn:hover {
+  background: linear-gradient(145deg, #3a55cc, #523acc);
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slideshow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fade 25s infinite;
+}
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 5s; }
+.slide:nth-child(3) { animation-delay: 10s; }
+.slide:nth-child(4) { animation-delay: 15s; }
+.slide:nth-child(5) { animation-delay: 20s; }
+
+@keyframes fade {
+  0%, 25%, 100% { opacity: 0; }
+  5%, 20% { opacity: 1; }
+}
+
+/* ===============================
+   🦶 Footer
+   =============================== */
+.footer {
+  background: #00245c;
+  color: #fff;
+  margin-top: 40px;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-info, .footer-links, .footer-social {
+  flex: 1 1 250px;
+}
+
+.footer h3, .footer h4 {
+  margin-bottom: 15px;
+  color: #4b9fff;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: #4b9fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+/* ===============================
+   📝 Cadastro Section
+   =============================== */
+.cadastro-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.cadastro-container {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.cadastro-container h1 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #00245c;
+  font-weight: 600;
+}
+
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #4b6cff;
+  box-shadow: 0 0 5px rgba(75, 108, 255, 0.5);
+}
+
+/* Botão cadastro */
+.btn-cadastro {
+  background: linear-gradient(145deg, #4b6cff, #6b4bff);
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-cadastro:hover {
+  background: linear-gradient(145deg, #3a55cc, #523acc);
+  transform: scale(1.05);
+}
+
