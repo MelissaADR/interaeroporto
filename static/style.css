@@ -13,23 +13,60 @@ body {
     line-height: 1.6;
 }
 
-/* ===== Cabeçalho / Menu ===== */
+/* ===== Cabeçalho com logo e menu ===== */
 header {
-    background-color: #003580; /* Azul escuro do layout */
-    padding: 15px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* logo à esquerda, menu à direita */
+    background-color: #0a335f;
+    padding: 10px 20px;
 }
 
-header nav a {
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 65px;   /* controla o tamanho da logo */
+    height: auto;
+    display: block;
+}
+
+/* Menu */
+.menu-nav {
+    display: flex;
+    gap: 22px;
+    justify-content: center; /* <<< centraliza os botões */
+    flex: 1; /* <<< ocupa o espaço para alinhar certinho */
+}
+
+
+.menu-nav a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    background-color: #ffffff0d;
     color: #fff;
     text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Segoe UI", sans-serif;
+    transition: all 0.2s ease;
 }
 
-header nav a:hover {
-    color: #00aaff; /* Azul claro quando passa o mouse */
+.menu-nav a:hover {
+    background-color: #ffffff22;
+}
+
+.menu-nav a.active {
+    background-color: #0084ff;
+    border-color: #ffffff20;
+    color: #fff;
 }
 
 /* ===== Container principal ===== */
@@ -78,14 +115,6 @@ form input {
     border-radius: 4px;
 }
 
-
-
-
-
-
-
-
-
 /* ===== Hero Section (Página inicial) ===== */
 .hero {
     text-align: center;
@@ -112,14 +141,6 @@ form input {
     padding: 12px 25px;
 }
 
-
-
-
-
-
-
-
-
 /* ===== Grade de Assentos ===== */
 .grid-assentos {
     display: grid;
@@ -130,53 +151,35 @@ form input {
     text-align: center;
 }
 
-
-/* ===== Ações de Estilização ===== */
-
 /* Estilo do Span dentro do label */
 .assento span {
-    display: block; /* Transforma o span em um bloco para ocupar o espaço do label */
+    display: block;
     background: #f3f3f3;
     padding: 15px;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
     font-weight: bold;
-    color: #333; /* Cor do texto padrão */
+    color: #333;
 }
 
-/* Remove a cor de fundo do label, já que o span vai ter a cor */
 .assento {
     background: none;
 }
 
-/* Estilo do span quando o mouse passa por cima do label */
 .assento:hover span {
-    background: #00aaff;
+    background: #179b17e0;
     color: #fff;
 }
 
-/* Esconde o radio button */
 .assento input {
     display: none;
 }
 
-/* Estilo do span quando o input está marcado */
 .assento input:checked + span {
     background: #003580;
     color: #e2e2e2;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* ===== Cartão de Embarque ===== */
 body {
@@ -207,10 +210,11 @@ body {
 
 /* Cabeçalho com fundo azul */
 .cartao-header {
-    background: #1a4fa3; /* azul */
+    background: #1a4fa3;
     padding: 2px;
     border-radius: 20px 20px 0 0;
 }
+
 .logo-img {
     max-height: 92px;
 }
@@ -223,36 +227,35 @@ body {
     margin: 20px 0;
 }
 
-/* Título Cartão de Embarque com fundo diferente */
+/* Título Cartão de Embarque */
 .titulo-cartao {
-    background: #134dba92;     /* cor de fundo (azul, pode mudar) */
-    color: #fff;             /* texto branco */
-    padding: 12px 20px;      /* espaço interno */
-    border-radius: 12px;     /* bordas arredondadas */
-    display: inline-block;   /* deixa só em volta do texto */
-    margin-bottom: 20px;     /* separa do resto */
+    background: #134dba92;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 20px;
     box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
 }
 
-
-
-/* Boarding Pass - agora com fundo branco */
+/* Boarding Pass */
 .boarding-pass {
-    background: #ffffff; /* branco */
-    color: #000; /* texto padrão em preto */
+    background: #ffffff;
+    color: #000;
     padding: 25px;
     border-radius: 0 0 20px 20px;
 }
+
 .boarding-pass h3 {
     margin-bottom: 20px;
     text-transform: uppercase;
-    color: #232323; /* título em azul escuro */
+    color: #232323;
 }
+
 .boarding-pass p {
     margin: 12px 0;
 }
 
-/* Azul escuro para as palavras-chave */
 .boarding-pass strong {
     color: #032355;
 }
@@ -261,31 +264,13 @@ body {
 .qr-code-img {
     width: 130px;
     margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto 0 auto;
 }
 
-
-
-
-
-
-
-/* Estilo para a imagem do QR Code */
-.qr-code-img {
-    max-width: 100%; /* Garante que a imagem não exceda a largura do seu contêiner (.cartao) */
-    height: auto;   /* Mantém a proporção da imagem */
-    display: block; /* Remove espaços extras que podem surgir */
-    margin: 20px auto 0 auto; /* Centraliza a imagem e adiciona margem superior */
-}
-
-
-
-
-
-
-
-
-
-
+/* ===== Cookie Banner ===== */
 #cookie-banner {
     position: fixed;
     bottom: 0;
@@ -316,5 +301,5 @@ body {
 }
 
 #cookie-banner button:hover {
-    background-color: #0056b3;
+    background-color: rgba(51, 51, 51, 0.636);
 }

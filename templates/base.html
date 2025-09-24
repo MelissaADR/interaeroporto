@@ -8,22 +8,51 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a href="{{ url_for('index') }}">Início</a>
-            <a href="{{ url_for('checkin') }}">Check-in</a>
-            <a href="{{ url_for('reserva') }}">Validação de Reserva</a>
-            <a href="{{ url_for('assentos') }}">Escolha de Assento</a>
-            <a href="{{ url_for('cartao') }}">Cartão de Embarque</a>
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="static/logo_branca.png" alt="Logo" class="logo">
+    </div>
 
-            {% if session.get('email') %}
-                <a href="{{ url_for('perfil') }}">Perfil</a>
-                <a href="{{ url_for('logout') }}">Logout</a>
-            {% else %}
-                <a href="{{ url_for('login') }}">Login</a>
-                <a href="{{ url_for('cadastro') }}">Cadastro</a>
-            {% endif %}
-        </nav>
+    <!-- Menu -->
+    <nav class="menu-nav">
+        <a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}">
+            <i class="fas fa-plane"></i> Início
+        </a>
+        <a href="{{ url_for('checkin') }}" class="{% if request.endpoint == 'checkin' %}active{% endif %}">
+            <i class="fas fa-check"></i> Check-in
+        </a>
+        <a href="{{ url_for('reserva') }}" class="{% if request.endpoint == 'reserva' %}active{% endif %}">
+            <i class="fas fa-ticket-alt"></i> Validação de Reserva
+        </a>
+        <a href="{{ url_for('assentos') }}" class="{% if request.endpoint == 'assentos' %}active{% endif %}">
+            <i class="fas fa-chair"></i> Escolha de Assento
+        </a>
+        <a href="{{ url_for('cartao') }}" class="{% if request.endpoint == 'cartao' %}active{% endif %}">
+            <i class="fas fa-id-card"></i> Cartão de Embarque
+        </a>
+
+        {% if session.get('email') %}
+            <a href="{{ url_for('perfil') }}" class="{% if request.endpoint == 'perfil' %}active{% endif %}">
+                <i class="fas fa-user"></i> Perfil
+            </a>
+            <a href="{{ url_for('logout') }}">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="{% if request.endpoint == 'login' %}active{% endif %}">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+            <a href="{{ url_for('cadastro') }}" class="{% if request.endpoint == 'cadastro' %}active{% endif %}">
+                <i class="fas fa-user-plus"></i> Cadastro
+            </a>
+        {% endif %}
+    </nav>
     </header>
+
+
+<!-- Importar ícones do Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
     <main>
         {% block content %}{% endblock %}
