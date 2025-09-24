@@ -14,10 +14,9 @@
                 <label class="assento">
                     <input type="radio" name="assento" value="{{ codigo_assento }}" 
                            {% if codigo_assento in ocupados %} disabled {% endif %} required>
+                    <span{% if codigo_assento in ocupados %} style="background-color: #ff6666; cursor: not-allowed;"{% endif %}>
                         {{ codigo_assento }}
-                        <span{% if codigo_assento in ocupados %} style="background-color: #ff6666; cursor: not-allowed;"{% endif %}>
-                        {{ codigo_assento }}
-                        </span>
+                    </span>
                 </label>
             {% endfor %}
         {% endfor %}
@@ -26,4 +25,5 @@
     <button type="submit" class="btn">Confirmar Assento</button>
 </form>
 {% endblock %}
+
 
