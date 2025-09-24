@@ -1,65 +1,97 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Sistema de Aeroporto{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
-    <!-- Logo -->
-    <div class="logo-container">
-        <img src="static/logo_branca.png" alt="Logo" class="logo">
-    </div>
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="static/logo_branca.png" alt="Logo" class="logo">
+        </div>
 
-    <!-- Menu -->
-    <nav class="menu-nav">
-        <a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}">
-            <i class="fas fa-plane"></i> Início
-        </a>
-        <a href="{{ url_for('checkin') }}" class="{% if request.endpoint == 'checkin' %}active{% endif %}">
-            <i class="fas fa-check"></i> Check-in
-        </a>
-        <a href="{{ url_for('reserva') }}" class="{% if request.endpoint == 'reserva' %}active{% endif %}">
-            <i class="fas fa-ticket-alt"></i> Validação de Reserva
-        </a>
-        <a href="{{ url_for('assentos') }}" class="{% if request.endpoint == 'assentos' %}active{% endif %}">
-            <i class="fas fa-chair"></i> Escolha de Assento
-        </a>
-        <a href="{{ url_for('cartao') }}" class="{% if request.endpoint == 'cartao' %}active{% endif %}">
-            <i class="fas fa-id-card"></i> Cartão de Embarque
-        </a>
+        <!-- Menu principal -->
+        <nav class="menu-nav">
+            <a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}">
+                <i class="fas fa-plane"></i> Início
+            </a>
+            <a href="{{ url_for('checkin') }}" class="{% if request.endpoint == 'checkin' %}active{% endif %}">
+                <i class="fas fa-check"></i> Check-in
+            </a>
+            <a href="{{ url_for('reserva') }}" class="{% if request.endpoint == 'reserva' %}active{% endif %}">
+                <i class="fas fa-ticket-alt"></i> Validação de Reserva
+            </a>
+            <a href="{{ url_for('assentos') }}" class="{% if request.endpoint == 'assentos' %}active{% endif %}">
+                <i class="fas fa-chair"></i> Escolha de Assento
+            </a>
+            <a href="{{ url_for('cartao') }}" class="{% if request.endpoint == 'cartao' %}active{% endif %}">
+                <i class="fas fa-id-card"></i> Cartão de Embarque
+            </a>
 
-        {% if session.get('email') %}
-            <a href="{{ url_for('perfil') }}" class="{% if request.endpoint == 'perfil' %}active{% endif %}">
-                <i class="fas fa-user"></i> Perfil
-            </a>
-            <a href="{{ url_for('logout') }}">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
-        {% else %}
-            <a href="{{ url_for('login') }}" class="{% if request.endpoint == 'login' %}active{% endif %}">
-                <i class="fas fa-sign-in-alt"></i> Login
-            </a>
-            <a href="{{ url_for('cadastro') }}" class="{% if request.endpoint == 'cadastro' %}active{% endif %}">
-                <i class="fas fa-user-plus"></i> Cadastro
-            </a>
-        {% endif %}
-    </nav>
+            {% if session.get('email') %}
+                <!-- Menu 3 pontos no desktop -->
+                <div class="menu-ellipsis desktop-only">
+                    <button id="ellipsis-toggle">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <div id="ellipsis-dropdown" class="dropdown">
+                        <a href="{{ url_for('perfil') }}">
+                            <i class="fas fa-user"></i> Perfil
+                        </a>
+                        <a href="{{ url_for('logout') }}">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="{% if request.endpoint == 'login' %}active{% endif %}">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+                <a href="{{ url_for('cadastro') }}" class="{% if request.endpoint == 'cadastro' %}active{% endif %}">
+                    <i class="fas fa-user-plus"></i> Cadastro
+                </a>
+            {% endif %}
+        </nav>
+
+        <!-- Ícone hambúrguer (mobile) -->
+        <div class="menu-hamburguer">
+            <button id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div id="menu-dropdown" class="dropdown">
+                {% if session.get('email') %}
+                    <a href="{{ url_for('perfil') }}">
+                        <i class="fas fa-user"></i> Perfil
+                    </a>
+                    <a href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                    <a href="{{ url_for('cadastro') }}">
+                        <i class="fas fa-user-plus"></i> Cadastro
+                    </a>
+                {% endif %}
+            </div>
+        </div>
     </header>
-
-
-<!-- Importar ícones do Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 
     <main>
         {% block content %}{% endblock %}
     </main>
 
-<script src="{{ url_for('static', filename='cookies.js') }}"></script>
-
+    <script src="{{ url_for('static', filename='menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='cookies.js') }}"></script>
 </body>
 </html>
+
+
+
 

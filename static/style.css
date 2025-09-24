@@ -29,7 +29,7 @@ header {
 }
 
 .logo {
-    width: 65px;   /* controla o tamanho da logo */
+    width: 65px;
     height: auto;
     display: block;
 }
@@ -38,10 +38,9 @@ header {
 .menu-nav {
     display: flex;
     gap: 22px;
-    justify-content: center; /* <<< centraliza os botões */
-    flex: 1; /* <<< ocupa o espaço para alinhar certinho */
+    justify-content: center; 
+    flex: 1;
 }
-
 
 .menu-nav a {
     display: flex;
@@ -302,4 +301,84 @@ body {
 
 #cookie-banner button:hover {
     background-color: rgba(51, 51, 51, 0.636);
+}
+
+/* ===== Menu hambúrguer (mobile) ===== */
+.menu-hamburguer {
+    position: relative;
+    display: none;
+}
+
+.menu-hamburguer button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ===== Menu 3 pontos (desktop) ===== */
+.menu-ellipsis {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-ellipsis button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.menu-ellipsis button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== Dropdown ===== */
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background-color: #0a335f;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    flex-direction: column;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown a {
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: background 0.2s;
+}
+
+.dropdown a:hover {
+    background-color: #ffffff22;
+}
+
+/* ===== Responsividade ===== */
+.desktop-only { display: inline-flex; }
+.mobile-only { display: none; }
+
+@media (max-width: 768px) {
+    .menu-nav {
+        display: none;
+    }
+    .menu-hamburguer {
+        display: block;
+    }
+    .desktop-only {
+        display: none !important;
+    }
+    .mobile-only {
+        display: block !important;
+    }
 }
