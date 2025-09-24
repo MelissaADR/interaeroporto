@@ -8,4 +8,13 @@
     <p>Facilite sua viagem: faça check-in, escolha seu assento e gere seu cartão de embarque em poucos passos.</p>
     <a href="{{ url_for('checkin') }}" class="btn">Fazer Check-in</a>
 </section>
+
+{% if not cookies_aceitos %}
+<div id="cookie-banner">
+    <p>Usamos cookies para melhorar sua experiência de navegação - Sobre nossa Política de Privacidade, Você aceita?</p>
+    <button onclick="aceitarCookies()">Aceitar</button>
+    <button onclick="rejeitarCookies()">Rejeitar</button>
+</div>
+{% endif %}
 {% endblock %}
+

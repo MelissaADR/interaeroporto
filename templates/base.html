@@ -29,14 +29,6 @@
         {% block content %}{% endblock %}
     </main>
 
-{% if not cookies_aceitos %}
-<div id="cookie-banner">
-    <p>Usamos cookies para melhorar sua experiência de navegação - Sobre nossa Política de Privacidade, Você aceita?</p>
-    <button onclick="aceitarCookies()">Aceitar</button>
-    <button onclick="rejeitarCookies()">Rejeitar</button>
-</div>
-{% endif %}
-
 <script src="{{ url_for('static', filename='cookies.js') }}"></script>
 
 </body>
