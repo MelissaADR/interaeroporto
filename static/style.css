@@ -276,3 +276,45 @@ body {
     display: block; /* Remove espaços extras que podem surgir */
     margin: 20px auto 0 auto; /* Centraliza a imagem e adiciona margem superior */
 }
+
+
+
+
+
+
+
+
+
+
+#cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f9f9f9;
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    z-index: 999;
+    font-family: Arial, sans-serif;
+}
+
+#cookie-banner p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+}
+
+#cookie-banner button {
+    margin: 0 5px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#cookie-banner button:hover {
+    background-color: #0056b3;
+}

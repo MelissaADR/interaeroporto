@@ -173,3 +173,33 @@ def logout():
 # ===== RODAR APP =====
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ===== BANNER DE COOKIES =====
+
+@app.route("/")
+def index():
+    nome = session.get("nome", "")
+    cookies_aceitos = request.cookies.get("cookies_aceitos")
+    return render_template("index.html", nome=nome, cookies_aceitos=cookies_aceitos)
+
+
+@app.route("/rejeitar_cookies")
+def rejeitar_cookies():
+    resp = app.make_response("Cookies rejeitados.")
+    resp.set_cookie("cookies_aceitos", "nao", max_age=60*60*24*365)
+    return resp
