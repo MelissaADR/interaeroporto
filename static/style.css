@@ -1,6 +1,4 @@
-/* ===============================
-   🎨 Configuração Geral & Reset
-   =============================== */
+/* Configuração Geral e Reset */
 * {
   margin: 0;
   padding: 0;
@@ -22,9 +20,7 @@ body {
   font-family: "Poppins", "Segoe UI", sans-serif;
 }
 
-/* ===============================
-   🧭 Cabeçalho (Logo + Menu)
-   =============================== */
+/* Cabeçalho (Logo + Menu) ------------ */
 header {
   display: flex;
   align-items: center;
@@ -44,7 +40,7 @@ header {
   display: block;
 }
 
-/* Menu principal */
+/* Menu principal --------------------- */
 .menu-nav {
   display: flex;
   gap: 22px;
@@ -77,9 +73,7 @@ header {
   color: #fff;
 }
 
-/* ===============================
-   📄 Conteúdo Principal
-   =============================== */
+/* Conteúdo Principal ------- */
 main {
   width: 100%;
   max-width: 900px;
@@ -87,9 +81,7 @@ main {
   padding: 20px;
 }
 
-/* ===============================
-   🔘 Botões
-   =============================== */
+/*  Botões ------------------------------------- */
 button, .btn {
   background-color: #134dbadd;
   color: #fff;
@@ -106,9 +98,7 @@ button:hover, .btn:hover {
   transform: scale(1.05);
 }
 
-/* ===============================
-   📑 Formulários
-   =============================== */
+/* Formulários */
 form {
   background: #fff;
   padding: 20px;
@@ -139,9 +129,7 @@ form input:focus {
   box-shadow: 0 0 5px rgba(75, 108, 255, 0.5);
 }
 
-/* ===============================
-   🦸 Hero Section
-   =============================== */
+/*  Hero Section (imagens mudando) */
 .hero {
   text-align: center;
   padding: 80px 20px;
@@ -167,9 +155,7 @@ form input:focus {
   border-radius: 25px;
 }
 
-/* ===============================
-   🎟️ Grade de Assentos
-   =============================== */
+/* Grade de Assentos -------------------------------------------------*/
 .grid-assentos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -204,9 +190,7 @@ form input:focus {
   color: #e2e2e2;
 }
 
-/* ===============================
-   💳 Cartão de Embarque
-   =============================== */
+/* Cartão de Embarque */
 .container-cartao {
   display: flex;
   justify-content: center;
@@ -270,9 +254,7 @@ form input:focus {
   display: block;
 }
 
-/* ===============================
-   🍪 Cookie Banner
-   =============================== */
+/*  Cookie Banner */
 #cookie-banner {
   position: fixed;
   bottom: 0;
@@ -306,9 +288,7 @@ form input:focus {
   background-color: rgba(51, 51, 51, 0.636);
 }
 
-/* ===============================
-   🍔 Menus Extras
-   =============================== */
+/* Menus Extras */
 /* Menu hambúrguer (mobile) */
 .menu-hamburguer {
   display: none;
@@ -367,9 +347,7 @@ form input:focus {
   background-color: #ffffff22;
 }
 
-/* ===============================
-   📱 Responsividade
-   =============================== */
+/* Responsividade */
 .desktop-only { display: inline-flex; }
 .mobile-only { display: none; }
 
@@ -380,9 +358,7 @@ form input:focus {
   .mobile-only { display: block !important; }
 }
 
-/* ===============================
-   🖼️ Slideshow + Hero Overlay
-   =============================== */
+/* Negocio das imagens menu */
 .hero-section {
   position: relative;
   width: 100%;
@@ -459,9 +435,7 @@ form input:focus {
   5%, 20% { opacity: 1; }
 }
 
-/* ===============================
-   🦶 Footer
-   =============================== */
+/*  Footer - parte de baixo - rodape -------------------------------------------*/
 .footer {
   background: #00245c;
   color: #fff;
@@ -515,9 +489,7 @@ form input:focus {
   font-size: 14px;
 }
 
-/* ===============================
-   📝 Cadastro Section
-   =============================== */
+/* Cadastro Section -----------------------------------------------------------------------*/
 .cadastro-section {
   display: flex;
   justify-content: center;
@@ -574,7 +546,7 @@ form input:focus {
   box-shadow: 0 0 5px rgba(75, 108, 255, 0.5);
 }
 
-/* Botão cadastro */
+/* Botão cadastro ----------------------------- */
 .btn-cadastro {
   background: linear-gradient(145deg, #4b6cff, #6b4bff);
   color: #fff;
